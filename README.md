@@ -29,7 +29,7 @@ O App-Tarefas é uma aplicação desenvolvida em Delphi Tokyo que visa demonstra
 ## Delphi
 - Delphi Tokyo
 - Aplicação em VCL (Cliente)
-- Aplicação em Console Application (Servidor)
+- Aplicação em Console Application (Serviço)
 - Framework Horse
 - Middleware de Autenticação simples em Horse
 - Padrões de Projeto Factory
