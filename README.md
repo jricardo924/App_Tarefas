@@ -100,6 +100,8 @@ Data em que a tarefa foi concluída.
 
 # Script de create:
 
+  Não é necessario criar a tabela, foi desenvolvido um metodo para criar a tabela na primeira consulta, caso não exista.
+
 CREATE TABLE Tarefas (
     Id INT PRIMARY KEY IDENTITY(1,1),
     Titulo NVARCHAR(100),
