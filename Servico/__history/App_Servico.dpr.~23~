@@ -1,0 +1,28 @@
+program App_Servico;
+
+{$APPTYPE CONSOLE}
+
+uses
+  Horse,
+  uRoutes,
+  Horse.BasicAuthentication,
+  System.SysUtils,
+  uTarefaRepository in 'uTarefaRepository.pas';
+
+begin
+  try
+    Writeln('Inicializando Serviço...');
+    THorse.Use(HorseBasicAuthentication(
+      function(const AUsername, APassword: string): Boolean
+      begin
+        // Autenticação simples com usuario e senha.
+        Result := AUsername.Equals('api') and APassword.Equals('123456');
+      end));
+
+    uRoutes.RegistryRoutes;
+    THorse.Listen(9000);
+  except
+    on E: Exception do
+      Writeln('Erro no serviço: ' + E.Message);
+  end;
+end.

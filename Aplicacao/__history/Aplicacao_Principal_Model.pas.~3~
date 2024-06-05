@@ -1,0 +1,64 @@
+unit Aplicacao_Principal_Model;
+
+interface
+
+uses
+  System.JSON, System.Generics.Collections;
+
+type
+  TTarefa = class
+  private
+    FId: string;
+    FTitulo: string;
+    FDescricao: string;
+    FPrioridade: string;
+    FStatus: string;
+    FDataCriacao: string;
+    FDataConclusao: string;
+  public
+    property Id: string read FId write FId;
+    property Titulo: string read FTitulo write FTitulo;
+    property Descricao: string read FDescricao write FDescricao;
+    property Prioridade: string read FPrioridade write FPrioridade;
+    property Status: string read FStatus write FStatus;
+    property DataCriacao: string read FDataCriacao write FDataCriacao;
+    property DataConclusao: string read FDataConclusao write FDataConclusao;
+  end;
+
+  TTarefaModel = class
+  public
+    function ListarTarefas: TJSONArray;
+  end;
+
+implementation
+
+uses
+  RESTRequest4D;
+
+function TTarefaModel.ListarTarefas: TJSONArray;
+var
+  LResponse: IResponse;
+begin
+  try
+     LResponse := TRequest.New.BaseURL('http://localhost:9000/tarefas/list')
+      .AddHeader('HeaderName', 'HeaderValue')
+      .AddParam('ParameterName', 'ParameterValue')
+      .Accept('application/json')
+      .Get;
+    if LResponse.StatusCode = 200 then
+    begin
+          Result := TJSONObject.ParseJSONValue(RESTResponse.Content) as TJSONArray;
+    end
+    else
+    begin
+       Result := nil;
+       raise Exception.Create('Erro ao listar tarefas: ' + RESTResponse.StatusText);
+    end;
+
+  finally
+    LResponse.Free;
+  end;
+end;
+
+end.
+

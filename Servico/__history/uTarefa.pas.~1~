@@ -1,0 +1,26 @@
+unit uTarefa;
+
+interface
+
+type
+  TTarefa = class
+  private
+    FID: Integer;
+    FDescricao: string;
+    FStatus: string;
+    FPrioridade: Integer;
+    FDataCriacao: TDateTime;
+    FDataConclusao: TDateTime;
+  public
+    property ID: Integer read FID write FID;
+    property Descricao: string read FDescricao write FDescricao;
+    property Status: string read FStatus write FStatus;
+    property Prioridade: Integer read FPrioridade write FPrioridade;
+    property DataCriacao: TDateTime read FDataCriacao write FDataCriacao;
+    property DataConclusao: TDateTime read FDataConclusao write FDataConclusao;
+  end;
+
+implementation
+
+end.
+

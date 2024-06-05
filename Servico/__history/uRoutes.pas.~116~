@@ -1,0 +1,186 @@
+unit uRoutes;
+{
+ Desenvolvedor: Ricardo Soares.
+ Data: 05/06/2024
+ Obs.: criação da classe de roteamento
+}
+
+interface
+
+uses
+  Horse, System.JSON, uTarefaRepository, uTarefa, uDatabaseQueryFactory, System.SysUtils, Vcl.Dialogs,
+  Horse.Jhonson;
+
+procedure RegistryRoutes;
+
+implementation
+
+//Seguindo conceitos de metodos FACTORY, implementei como repositorio a classe ITarefaRepository
+//e uma implementação concreta TTarefaRepository, criando instancias dos repositorios
+//Esse metodo gerencia o acesso ao banco de dados
+var
+  TarefaRepository: ITarefaRepository;           // Variável global para o repositório de tarefas
+
+procedure TarefasId(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  TarefaID: Integer;
+  BodyJSON: TJSONObject;
+begin
+  BodyJSON := Req.Body<TJSONObject>;
+  TarefaID := StrToInt(BodyJSON.GetValue('id').Value);
+
+  try
+    if TarefaRepository.AtualizarStatusTarefa(TarefaID, NovoStatus, vldData) then
+      Res.Send(TJSONObject.Create(TJSONPair.Create('message', 'Status da tarefa atualizado com sucesso')));
+    Writeln('Atualizando status...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure ListTarefas(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  List: TJSONArray;
+begin
+  try
+    List := TarefaRepository.ListarTarefas;
+    Res.Send<TJSONArray>(List);
+    Writeln('Listando Tarefas...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure AddTarefa(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  BodyJSON: TJSONObject;
+  Tarefa: TTarefa;
+begin
+  BodyJSON := Req.Body<TJSONObject>;
+  Tarefa := TTarefa.Create;
+  try
+    Tarefa.Titulo := BodyJSON.GetValue('Titulo').Value;
+    Tarefa.Descricao := BodyJSON.GetValue('Descricao').Value;
+    Tarefa.Prioridade := BodyJSON.GetValue('Prioridade').Value.ToInteger;
+    Tarefa.Status := BodyJSON.GetValue('Status').Value;
+    Tarefa.DataCriacao := StrToDateTime(BodyJSON.GetValue('DataCriacao').Value);
+    if Trim(BodyJSON.GetValue('DataConclusao').Value) <> 'null' then
+      Tarefa.DataConclusao := StrToDateTime(BodyJSON.GetValue('DataConclusao').Value);
+
+    if TarefaRepository.AdicionarTarefa(Tarefa) then
+      Res.Send(TJSONObject.Create(TJSONPair.Create('message', 'Tarefa adicionada com sucesso')));
+    Writeln('Tarefa adicionada...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+  Tarefa.Free;
+end;
+
+procedure UpdateStatusTarefa(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  TarefaID: Integer;
+  NovoStatus: string;
+  vldData: TDate;
+  BodyJSON: TJSONObject;
+begin
+  BodyJSON := Req.Body<TJSONObject>;
+  TarefaID := StrToInt(BodyJSON.GetValue('id').Value);
+  NovoStatus := BodyJSON.GetValue('status').Value;
+  if Trim(BodyJSON.GetValue('data_conclusao').Value) <> 'null' then
+    vldData := StrToDate(BodyJSON.GetValue('data_conclusao').Value);
+
+  try
+    if TarefaRepository.AtualizarStatusTarefa(TarefaID, NovoStatus, vldData) then
+      Res.Send(TJSONObject.Create(TJSONPair.Create('message', 'Status da tarefa atualizado com sucesso')));
+    Writeln('Atualizando status...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure RemoveTarefa(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  TarefaID: Integer;
+  BodyJSON: TJSONObject;
+begin
+  BodyJSON := Req.Body<TJSONObject>;
+  TarefaID := StrToInt(BodyJSON.GetValue('id').Value);
+
+  try
+    if TarefaRepository.RemoverTarefa(TarefaID) then
+      Res.Send(TJSONObject.Create(TJSONPair.Create('message', 'Tarefa removida com sucesso')));
+    Writeln('Removendo Tarefa...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure TotalTarefas(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  vliTotal: Integer;
+begin
+  try
+    vliTotal := TarefaRepository.TotalTarefas;
+    Res.Send<TJSONObject>(TJSONObject.Create(TJSONPair.Create('total', vliTotal.ToString)));
+    Writeln('Consulta Total de Tarefas...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure MediaPrioridadePendentes(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  vlrMedia: Double;
+begin
+  try
+    vlrMedia := TarefaRepository.MediaPrioridadePendentes;
+    Res.Send<TJSONObject>(TJSONObject.Create(TJSONPair.Create('media_priori_pendentes', vlrMedia.ToString)));
+    Writeln('Consulta Média de prioridade das tarefas pendentes...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure TarefasConcluidasUltimos7Dias(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  Count: Integer;
+begin
+  try
+    Count := TarefaRepository.TarefasConcluidasUltimos7Dias;
+    Res.Send<TJSONObject>(TJSONObject.Create(TJSONPair.Create('concluidas_sete_dias', Count.ToString)));
+    Writeln('Consulta tarefas concluidas nos ultimos 7 dias...');
+  except
+    on E: Exception do
+      Writeln('Erro: ' + E.Message);
+  end;
+end;
+
+procedure RegistryRoutes;
+var
+  QueryFactory: IDatabaseQueryFactory;
+begin
+  //Instancia objetos de banco
+  QueryFactory := TDatabaseQueryFactory.Create;
+  TarefaRepository := TTarefaRepository.Create(QueryFactory);
+  //Instancia objetos do Horse e seta rotas da API de serviços
+  THorse.Use(Jhonson());
+  THorse.Get('/tarefas/list', ListTarefas);
+  THorse.Get('/tarefas/id', TarefasId);
+  THorse.Post('/tarefas/add', AddTarefa);
+  THorse.Put('/tarefas/status', UpdateStatusTarefa);
+  THorse.put('/tarefas/remover', RemoveTarefa);
+  THorse.Get('/tarefas/total', TotalTarefas);
+  THorse.Get('/tarefas/media_priori_pendentes', MediaPrioridadePendentes);
+  THorse.Get('/tarefas/concluidas_sete_dias', TarefasConcluidasUltimos7Dias);
+  Writeln('Serviço Ativo!');
+end;
+
+end.
+

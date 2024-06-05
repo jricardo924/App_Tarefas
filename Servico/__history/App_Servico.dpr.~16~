@@ -1,0 +1,22 @@
+program App_Servico;
+
+{$APPTYPE CONSOLE}
+
+uses
+  Horse,
+  uRoutes,
+  Horse.BasicAuthentication,
+  System.SysUtils;
+
+begin
+  Writeln('Inicializando Serviço...');
+  THorse.Use(HorseBasicAuthentication(
+    function(const AUsername, APassword: string): Boolean
+    begin
+      // Here inside you can access your database and validate if username and password are valid
+      Result := AUsername.Equals('user') and APassword.Equals('password');
+    end));
+
+  uRoutes.RegistryRoutes;
+  THorse.Listen(9000);
+end.

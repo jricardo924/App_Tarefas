@@ -1,0 +1,44 @@
+unit Aplicacao_Principal_Presenter;
+
+interface
+
+uses
+  Aplicacao_Principal_Model, System.SysUtils, System.JSON;
+
+type
+  IView = interface
+    procedure DisplayTarefas(const jsonResponse: TJSONArray);
+  end;
+
+  TPresenter = class
+  private
+    FView: IView;
+    FModel: TTarefaModel;
+  public
+    constructor Create(AView: IView);
+    procedure ListarTarefas;
+  end;
+
+implementation
+
+constructor TPresenter.Create(AView: IView);
+begin
+  FView := AView;
+  FModel := TTarefaModel.Create;
+end;
+
+procedure TPresenter.ListarTarefas;
+var
+  jsonResponse: TJSONArray;
+begin
+  try
+    jsonResponse := FModel.ListarTarefas;
+    FView.DisplayTarefas(jsonResponse);
+  except
+    on E: Exception do
+      // Trate exceções adequadamente
+      raise;
+  end;
+end;
+
+end.

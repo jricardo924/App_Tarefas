@@ -1,0 +1,14 @@
+program App_Tarefas;
+
+uses
+  Vcl.Forms,
+  Frm_Aplicacao_Principal in 'Frm_Aplicacao_Principal.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

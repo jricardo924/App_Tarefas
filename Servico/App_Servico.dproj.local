@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/03/22 08:53:37.000.283,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 08:55:19.000.003,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:00:23.000.272,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:05:44.000.177,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:09:30.000.050,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:10:21.000.938,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\ItemDetail1.pas</Transaction>
+    <Transaction>2022/03/22 09:10:21.000.451,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\GroupedItems1.pas</Transaction>
+    <Transaction>2022/03/22 09:16:35.000.732,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\SplitItemDetail1.pas</Transaction>
+    <Transaction>2022/03/22 09:16:35.000.444,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\GroupedItems1.pas</Transaction>
+    <Transaction>2022/03/22 09:25:01.000.499,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:29:40.000.980,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 09:29:47.000.912,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 10:20:06.000.449,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 11:00:54.000.226,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 11:02:51.000.165,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 14:08:45.000.035,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/22 14:09:15.000.306,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/03/30 16:17:57.000.407,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/04/29 17:20:43.000.965,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/05/26 09:58:26.000.447,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/14 17:42:12.000.414,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 13:59:38.000.748,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 14:00:20.000.158,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/28 23:41:02.000.603,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/06/03 16:50:37.000.055,=C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/06/03 17:09:52.000.252,C:\Users\ricardo.soares\OneDrive - SPADER DISTRIBUIDORA DE ALIMENTOS L\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\APP-Montreal\servico\App_Servico.dproj</Transaction>
+    <Transaction>2024/06/03 17:44:10.000.231,=C:\APP-Montreal\servico\Unit1.pas</Transaction>
+    <Transaction>2024/06/03 17:44:38.000.193,=C:\APP-Montreal\servico\Unit2.pas</Transaction>
+    <Transaction>2024/06/03 18:17:50.000.972,=C:\APP-Montreal\servico\Unit1.pas</Transaction>
+    <Transaction>2024/06/03 18:18:29.000.203,C:\APP-Montreal\servico\Unit1.pas=C:\APP-Montreal\servico\uDatabase.pas</Transaction>
+    <Transaction>2024/06/05 07:40:55.000.300,=C:\APP-Montreal\servico\Unit1.pas</Transaction>
+    <Transaction>2024/06/05 07:41:24.000.442,C:\APP-Montreal\servico\Unit1.pas=C:\APP-Montreal\servico\uTarefaRepository.pas</Transaction>
+    <Transaction>2024/06/05 08:01:31.000.667,=C:\APP-Montreal\servico\Unit1.pas</Transaction>
+    <Transaction>2024/06/05 08:03:15.000.716,C:\APP-Montreal\servico\Unit1.pas=C:\APP-Montreal\servico\uDatabaseQueryFactory.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

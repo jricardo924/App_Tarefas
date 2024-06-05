@@ -1,0 +1,47 @@
+unit uTarefa;
+
+interface
+
+uses
+  System.JSON;
+
+type
+  TTarefa = class
+  private
+    FID: Integer;
+    FTitulo: String;
+    FDescricao: string;
+    FStatus: string;
+    FPrioridade: Integer;
+    FDataCriacao: TDate;
+    FDataConclusao: TDate;
+
+  public
+    property ID: Integer read FID write FID;
+    property Titulo: string read FTitulo write FTitulo;
+    property Descricao: string read FDescricao write FDescricao;
+    property Status: string read FStatus write FStatus;
+    property Prioridade: Integer read FPrioridade write FPrioridade;
+    property DataCriacao: TDate read FDataCriacao write FDataCriacao;
+    property DataConclusao: TDate read FDataConclusao write FDataConclusao;
+
+
+    function ToJSONObject: TJSONObject;
+  end;
+
+implementation
+
+function TTarefa.ToJSONObject: TJSONObject;
+begin
+  Result := TJSONObject.Create;
+  Result.AddPair('ID', TJSONNumber.Create(FID));
+  Result.AddPair('Titulo', TJSONString.Create(FTitulo));
+  Result.AddPair('Descricao', TJSONString.Create(FDescricao));
+  Result.AddPair('Status', TJSONString.Create(FStatus));
+  Result.AddPair('Prioridade', TJSONNumber.Create(FPrioridade));
+  Result.AddPair('DataCriacao', TJSONNumber.Create(FDataCriacao));
+  Result.AddPair('DataConclusao', TJSONNumber.Create(FDataConclusao));
+end;
+
+end.
+

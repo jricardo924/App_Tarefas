@@ -1,0 +1,91 @@
+unit uDatabase;
+
+interface
+
+uses
+  Data.Win.ADODB, System.SysUtils, Vcl.Dialogs, Winapi.ActiveX; // Adicione a unit Winapi.ActiveX
+
+type
+  TDatabaseConnection = class
+  private
+    class var FConnection: TADOConnection;
+    class function GetConnection: TADOConnection;
+  public
+    class function GetInstance: TADOConnection;
+    class procedure ReleaseInstance;
+  end;
+
+  TDatabaseQuery = class
+  private
+    class function GetConnection: TADOConnection;
+  public
+    class function CreateQuery: TADOQuery;
+  end;
+
+implementation
+
+{ TDatabaseConnection }
+
+class function TDatabaseConnection.GetConnection: TADOConnection;
+begin
+  if not Assigned(FConnection) then
+  begin
+    CoInitialize(nil); // Chame CoInitialize aqui
+    FConnection := TADOConnection.Create(nil);
+    FConnection.Connected := False;
+    FConnection.ConnectionString := 'Provider=SQLOLEDB.1;Integrated' +
+    ' Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=TI-002';
+
+
+   try
+     FConnection.Connected := True;
+   except
+     on e: exception do
+     begin
+        ShowMessage('Erro ao conectar:' + e.Message);
+     end;
+   end;
+  end;
+  Result := FConnection;
+end;
+
+class function TDatabaseConnection.GetInstance: TADOConnection;
+begin
+  Result := GetConnection;
+end;
+
+class procedure TDatabaseConnection.ReleaseInstance;
+begin
+  if Assigned(FConnection) then
+  begin
+    if not FConnection.Connected then
+    begin
+      FConnection.Free;
+      FConnection := nil;
+      CoUninitialize; // Chame CoUninitialize aqui apenas quando não houver mais conexões ativas
+    end
+    else
+    begin
+      ShowMessage('A conexão ainda está ativa. Por favor, desconecte-a antes de liberar a instância.');
+    end;
+  end;
+end;
+
+{ TDatabaseQuery }
+
+class function TDatabaseQuery.GetConnection: TADOConnection;
+begin
+  Result := TDatabaseConnection.GetConnection;
+end;
+
+class function TDatabaseQuery.CreateQuery: TADOQuery;
+begin
+  Writeln('Iniciando conexão com o banco.');
+  Result.Connection := GetConnection;
+  Writeln('Instancia conexão com o banco.');
+  Result := TADOQuery.Create(nil);
+  Writeln('Conectado!');
+end;
+
+end.
+

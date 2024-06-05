@@ -1,0 +1,81 @@
+unit uDatabase;
+
+interface
+
+uses
+  Data.Win.ADODB, System.SysUtils, Vcl.Dialogs;
+
+type
+  TDatabaseConnection = class
+  private
+    class var FConnection: TADOConnection;
+    class function GetConnection: TADOConnection;
+  public
+    class function GetInstance: TADOConnection;
+    class procedure ReleaseInstance;
+  end;
+
+  TDatabaseQuery = class
+  private
+    class function GetConnection: TADOConnection;
+  public
+    class function CreateQuery: TADOQuery;
+  end;
+
+implementation
+
+{ TDatabaseConnection }
+
+class function TDatabaseConnection.GetConnection: TADOConnection;
+begin
+  if not Assigned(FConnection) then
+  begin
+    FConnection := TADOConnection.Create(nil);
+    FConnection.ConnectionString := 'Provider=SQLOLEDB.1;Integrated' +
+    ' Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=TI-002';
+   try
+     FConnection.Connected := True;
+   except
+     on e: exception do
+     begin
+        ShowMessage('Erro ao conectar:' + e.Message);
+     end;
+
+   end;
+  end;
+  Result := FConnection;
+end;
+
+class function TDatabaseConnection.GetInstance: TADOConnection;
+begin
+  Result := GetConnection;
+end;
+
+class procedure TDatabaseConnection.ReleaseInstance;
+begin
+  if Assigned(FConnection) then
+  begin
+    FConnection.Connected := False;
+    FConnection.Free;
+    FConnection := nil;
+  end;
+end;
+
+{ TDatabaseQuery }
+
+class function TDatabaseQuery.GetConnection: TADOConnection;
+begin
+  Result := TDatabaseConnection.GetConnection;
+end;
+
+class function TDatabaseQuery.CreateQuery: TADOQuery;
+begin
+  Writeln('Instancia conexão com o banco.');
+  Result := TADOQuery.Create(nil);
+  Writeln('Iniciando conexão com o banco.');
+  Result.Connection := GetConnection;
+  Writeln('Conectado!');
+end;
+
+end.
+
