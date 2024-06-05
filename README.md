@@ -49,19 +49,20 @@ Pré-requisitos: Delphi Tokyo
 
 ```bash
 # clonar repositório
+cd c:\
 git clone https://github.com/jricardo924/App-Tarefas
 
 # entrar na pasta do projeto
 cd C:\App-Tarefas
 
 # Instalação do Horse
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\Horse\horse-master\horse-master\src
+No Delphi abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\Horse\horse-master\horse-master\src
 
 # Instalação do RESTResquest4
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\RESTRequest4Delphi-master\src
+No Delphi abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\RESTRequest4Delphi-master\src
 
 # Instalação do Horse.Jhonson
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\jhonson-master\src
+No Delphi abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\jhonson-master\src
 
 # executar o projeto Cliente
 Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Tarefas.exe
@@ -70,7 +71,13 @@ Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Tarefas.exe
 Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Servico.exe
 
 # SQL Server
-Criar a tabela no schema master. 
+
+<< Setar o arquivo de conexão com o banco (SQL Server) >>
+Abrir o arquivo em C:\App-Tarefas\Servico\Conexao DB\StringConexao.txt
+   Exemplo: "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=NomeMaquina"
+
+
+# Criar a tabela no schema master. 
 
 # Estrutura de Dados para Tarefas
 
@@ -91,7 +98,7 @@ Data em que a tarefa foi criada.
 Data_Conclusao: DATE
 Data em que a tarefa foi concluída.
 
-Script de create:
+# Script de create:
 
 CREATE TABLE Tarefas (
     Id INT PRIMARY KEY IDENTITY(1,1),
