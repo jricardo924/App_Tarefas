@@ -1,6 +1,8 @@
 # App_Tarefas
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/jricardo924/App_Tarefas/blob/main/LICENSE) 
 
+
+
 # Sobre o projeto
 
 O App-Tarefas é uma aplicação desenvolvida em Delphi Tokyo que visa demonstrar métodos, capacidade técnica e analítica para seleção de emprego em uma empresa da área de software
@@ -49,16 +51,9 @@ Pré-requisitos: Delphi Tokyo
 ```bash
 # clonar repositório
 git clone https://github.com/jricardo924/App-Tarefas
-Clone para diretorio C:\
 
 # entrar na pasta do projeto
 cd C:\App-Tarefas
-
-# executar o projeto Cliente
-Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Tarefas.exe
-
-# executar o projeto Serviço
-Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Servico.exe
 
 # Instalação do Horse
 Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Horse\horse-master\horse-master\src
@@ -69,9 +64,15 @@ Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Ta
 # Instalação do Horse.Jhonson
 Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\jhonson-master\src
 
+# executar o projeto Cliente
+Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Tarefas.exe
+
+# executar o projeto Serviço
+Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Servico.exe
 
 # SQL Server
-Criar a tabela no master. Script de create:
+Criar a tabela no schema master. 
+Script de create:
 
 CREATE TABLE Tarefas (
     Id INT PRIMARY KEY IDENTITY(1,1),
