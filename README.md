@@ -5,8 +5,7 @@
 
 # Sobre o projeto
 
-O App-Tarefas é uma aplicação desenvolvida em Delphi Tokyo que visa demonstrar métodos, capacidade técnica e analítica para seleção de emprego em uma empresa da área de software
-
+O App-Tarefas é uma aplicação desenvolvida em Delphi Tokyo que visa demonstrar métodos, capacidade técnica e analítica no desenvolvimento de uma aplicação cliente e outra de serviço com framework horse.
 
 
    A aplicação desenvolvida consiste em um serviço em Delphi projetado para gerenciar informações sobre tarefas. Este serviço oferece um conjunto abrangente de funcionalidades, incluindo a consulta e retorno da lista completa de tarefas, adição de novas tarefas, atualização do status de uma tarefa e remoção de tarefas existentes.
