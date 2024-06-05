@@ -91,4 +91,4 @@ CREATE TABLE Tarefas (
 
 José Ricardo Kinaip Soares
 
-https://www.linkedin.com/in/wmazoni
+https://www.linkedin.com/in/ricardo-soares-384a4a94
