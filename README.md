@@ -1,5 +1,5 @@
 # App_Tarefas
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/jricardo924/APP-CEP/blob/main/LICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/jricardo924/App_Tarefas/blob/main/LICENSE) 
 
 # Sobre o projeto
 
