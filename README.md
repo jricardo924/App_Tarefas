@@ -55,13 +55,13 @@ git clone https://github.com/jricardo924/App-Tarefas
 cd C:\App-Tarefas
 
 # Instalação do Horse
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Horse\horse-master\horse-master\src
+Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\Horse\horse-master\horse-master\src
 
 # Instalação do RESTResquest4
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\RESTRequest4Delphi-master\src
+Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\RESTRequest4Delphi-master\src
 
 # Instalação do Horse.Jhonson
-Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\jhonson-master\src
+Abrir o Tools >> Options >> Delphi Options >> Library >> Library path: C:\App-Tarefas\Componentes\jhonson-master\src
 
 # executar o projeto Cliente
 Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Tarefas.exe
@@ -71,6 +71,26 @@ Abrir executavel na pasta C:\App-Tarefas\Aplicacao\Win32\Debug\App_Servico.exe
 
 # SQL Server
 Criar a tabela no schema master. 
+
+# Estrutura de Dados para Tarefas
+
+Tabela: Tarefas
+
+Id: INT, PRIMARY KEY, IDENTITY(1,1)
+Identificador único para cada tarefa, com incremento automático.
+Titulo: NVARCHAR(100)
+Título da tarefa, com um limite de 100 caracteres.
+Descricao: NVARCHAR(500)
+Descrição detalhada da tarefa, com um limite de 500 caracteres.
+Prioridade: INT
+Nível de prioridade da tarefa (por exemplo, 1 para baixa, 2 para média, 3 para alta).
+Status: NVARCHAR(50)
+Status atual da tarefa (por exemplo, "Pendente", "Em Progresso", "Concluído").
+Data_Criacao: DATE
+Data em que a tarefa foi criada.
+Data_Conclusao: DATE
+Data em que a tarefa foi concluída.
+
 Script de create:
 
 CREATE TABLE Tarefas (
